@@ -10,6 +10,10 @@ defmodule BloggersWeb.Router do
     plug :put_secure_browser_headers
   end
 
+  def print_conn(conn, _params) do
+    IO.inspect conn
+  end
+
   pipeline :api do
     plug :accepts, ["json"]
   end
@@ -17,10 +21,15 @@ defmodule BloggersWeb.Router do
   scope "/", BloggersWeb do
     pipe_through :browser
 
+    get "/blogposts", PageController, :blogposts
     get "/", PageController, :home
     get "/main", MainController, :main
     get "/light", LightController, :light
     live "/light_live", LightLive, :live
+    get "/new_one", PageController, :new_one
+    get "/insert_blogpost", PageController, :insert_blogpost
+    post "/insert_blogpost", PageController, :insert_blog
+    live "/numberlink", PuzzleLive, :numberlink
   end
 
   # Other scopes may use custom stacks.

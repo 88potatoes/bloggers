@@ -9,3 +9,21 @@
 #
 # We recommend using the bang functions (`insert!`, `update!`
 # and so on) as they will fail if something goes wrong.
+
+alias Bloggers.Repo
+alias Bloggers.Blog.Blogpost
+
+Repo.insert %Blogpost{
+  title: "New One",
+  body: "newone"
+}
+
+Repo.insert %Blogpost{
+  title: "Philosophy",
+  body: "Kinda my philosophy"
+}
+
+Repo.insert %Blogpost{
+  title: "HEHE",
+  body: "hawahaw"
+}

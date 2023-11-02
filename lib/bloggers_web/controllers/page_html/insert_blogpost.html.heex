@@ -1,0 +1,7 @@
+<.simple_form for={@form} action="/insert_blogpost">
+    <.input field={@form[:title]} label="title" name="title" value=""> </.input>
+    <.input field={@form[:body]} label="body" name="body" value=""> </.input>
+    <:actions>
+        <.button>Save</.button>
+    </:actions>
+</.simple_form>
